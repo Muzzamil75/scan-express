@@ -1,0 +1,12 @@
+$body-color: rgb(72, 61, 233);
+
+body {
+  background-color: $body-color;
+}
+
+.mainLayout {
+  height: 200px;
+  width: '100%' !important;
+  font-size: 40px !important;
+  background-color: aqua !important;
+}
