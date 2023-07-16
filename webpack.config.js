@@ -47,6 +47,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    // this allows proper working of absolute paths within the app
+    alias: {
+      src: path.resolve(__dirname, 'src'), // R
+    },
   },
   module: {
     rules: [
@@ -63,12 +67,14 @@ module.exports = {
         },
         // use : ['ts-loader']
       },
-      // {
-      //     test: /\.css$/i,
-      //     use: ['style-loader', 'scss-loader'],
-      // },
+      // for handling images
       {
-        test: /\.scss$/,
+        test: /\.png$/,
+        use: ['file-loader'],
+      },
+      {
+        // test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
